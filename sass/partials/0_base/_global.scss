@@ -1,0 +1,5 @@
+@use "../1_utils/mixins" as m;
+.main {
+  min-height: 100vh;
+  @include m.flex(0, center, center);
+}

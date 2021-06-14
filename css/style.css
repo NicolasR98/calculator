@@ -1,3 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@500;600&display=swap");
+.main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: 0;
+  align-items: center;
+  justify-content: center;
+}
 
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+:root {
+  font-family: "Work Sans", sans-serif;
+  font-size: 16px;
+  color: #fffdf2;
+  font-weight: normal;
+}
+
+.calculator {
+  background: linear-gradient(166.11deg, #3b3e3f 0.88%, #0d0f11 97.96%);
+  filter: drop-shadow(10px 11px 31px rgba(0, 0, 0, 0.5));
+  width: 325px;
+  height: 625px;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: minmax(180px, auto) repeat(5, 1fr);
+  gap: 1em;
+  padding: 2.2em 1.1em 3em;
+  border-radius: 40px;
+}
+.calculator__header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-around;
+  grid-column: 1/-1;
+}
+.calculator__header .header__operand--previous {
+  font-size: 1.5rem;
+  color: #7b7d7f;
+}
+.calculator__header .header__operand--current {
+  font-size: 2.625rem;
+  font-weight: 600;
+  color: #a5aead;
+}
+.calculator__button {
+  transition: all 100ms ease;
+  font-family: "Work Sans", sans-serif;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #fffdf2;
+  border-radius: 25px;
+}
+.calculator .calculator__button:hover {
+  filter: brightness(115%);
+}
+.calculator .button--operator {
+  background: linear-gradient(180deg, #39224f 0%, #563276 100%);
+  box-shadow: -2px -1px 4px rgba(132, 132, 132, 0.25), 3px 4px 4px rgba(0, 0, 0, 0.25), inset 0px -3px 2px rgba(61, 61, 61, 0.35);
+  color: #d096f3;
+}
+.calculator .button--number {
+  background: linear-gradient(180deg, #27282b 0%, #36373b 100%);
+  box-shadow: -2px -1px 4px rgba(132, 132, 132, 0.25), 3px 4px 4px rgba(0, 0, 0, 0.25), inset 0px -3px 2px rgba(61, 61, 61, 0.35);
+}
+.calculator .button--function {
+  background: linear-gradient(180deg, #e68600 0%, #ffb042 100%);
+  box-shadow: -2px -1px 4px rgba(132, 132, 132, 0.25), 3px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.calculator .button--span_two {
+  grid-column: span 2;
+}
+
+body {
+  background-color: #212528;
+}
 
 /*# sourceMappingURL=style.css.map */

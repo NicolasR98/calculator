@@ -1,0 +1,15 @@
+@use "./colors" as c;
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@500;600&display=swap");
+
+$font_family: "Work Sans", sans-serif;
+$font_size_base: 16px;
+$font_size_1: 2.625rem; //42px
+$font_size_2: 2rem; //32px
+$font_size_3: 1.5rem; //24px
+
+:root {
+  font-family: $font_family;
+  font-size: $font_size_base;
+  color: c.$white_1;
+  font-weight: normal;
+}

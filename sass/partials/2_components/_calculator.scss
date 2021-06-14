@@ -1,0 +1,61 @@
+@use "../0_base/colors" as c;
+@use "../0_base/typography" as f;
+@use "../1_utils/mixins" as m;
+
+.calculator {
+  @include m.assignBackground("calculator");
+  width: 325px;
+  height: 625px;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: minmax(180px, auto) repeat(5, 1fr);
+  gap: 1em;
+  padding: 2.2em 1.1em 3em;
+  border-radius: 40px;
+
+  &__header {
+    @include m.flex(column, flex-end, space-around);
+    grid-column: 1/-1;
+
+    .header__operand--previous {
+      font-size: f.$font_size_3;
+      color: c.$gray_2;
+    }
+    .header__operand--current {
+      font-size: f.$font_size_1;
+      font-weight: 600;
+      color: c.$gray_1;
+    }
+  }
+
+  &__button {
+    @include m.addTransition(all, 100ms, ease);
+    font-family: f.$font_family;
+    font-size: f.$font_size_2;
+    cursor: pointer;
+    color: c.$white_1;
+    border-radius: 25px;
+  }
+  .calculator__button:hover {
+    filter: brightness(115%);
+  }
+
+  .button--operator {
+    @include m.assignBackground("btn_operator");
+    color: c.$purple_1;
+  }
+
+  .button--number {
+    @include m.assignBackground("btn_number");
+  }
+
+  .button--function {
+    @include m.assignBackground("btn_function");
+  }
+
+  .button--span_two {
+    grid-column: span 2;
+  }
+}

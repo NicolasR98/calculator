@@ -1,0 +1,35 @@
+@mixin flex($orientation: row, $align: stretch, $justify: stretch) {
+  display: flex;
+  flex-direction: $orientation;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin assignBackground($element) {
+  @if $element == "calculator" {
+    background: linear-gradient(166.11deg, #3b3e3f 0.88%, #0d0f11 97.96%);
+    filter: drop-shadow(10px 11px 31px rgba(0, 0, 0, 0.5));
+  }
+
+  @if $element == "btn_number" {
+    background: linear-gradient(180deg, #27282b 0%, #36373b 100%);
+    box-shadow: -2px -1px 4px rgba(132, 132, 132, 0.25),
+      3px 4px 4px rgba(0, 0, 0, 0.25), inset 0px -3px 2px rgba(61, 61, 61, 0.35);
+  }
+
+  @if $element == "btn_operator" {
+    background: linear-gradient(180deg, #39224f 0%, #563276 100%);
+    box-shadow: -2px -1px 4px rgba(132, 132, 132, 0.25),
+      3px 4px 4px rgba(0, 0, 0, 0.25), inset 0px -3px 2px rgba(61, 61, 61, 0.35);
+  }
+
+  @if $element == "btn_function" {
+    background: linear-gradient(180deg, #e68600 0%, #ffb042 100%);
+    box-shadow: -2px -1px 4px rgba(132, 132, 132, 0.25),
+      3px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+}
+
+@mixin addTransition($props: all, $duration: 250ms, $timing: ease) {
+  transition: $props $duration $timing;
+}
