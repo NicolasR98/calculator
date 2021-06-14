@@ -18,6 +18,8 @@
   &__header {
     @include m.flex(column, flex-end, space-around);
     grid-column: 1/-1;
+    word-wrap: break-word;
+    word-break: break-all;
 
     .header__operand--previous {
       font-size: f.$font_size_3;
