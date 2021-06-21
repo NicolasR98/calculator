@@ -2,7 +2,7 @@
 
 Project for [TOP](https://www.theodinproject.com/courses/foundations/lessons/calculator) to create Calculator using only HTML, Sass and Vanilla JavaScript.
 
-
+<img src="./public/images/calculator.png" alt="calculator project image"/>
 
 👉 [Live preview](https://nicolasr98.github.io/calculator/)
 
