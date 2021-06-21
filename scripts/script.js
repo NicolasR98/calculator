@@ -9,15 +9,18 @@ class Calculator {
     this.previousOperand = "";
     this.currentOperand = "";
     this.operation = undefined;
+    this.updateDisplay();
   }
 
   clear() {
     this.currentOperand = this.currentOperand.toString().slice(0, -1);
+    this.updateDisplay();
   }
 
   appendNumber(number) {
     if (number === "." && this.currentOperand.includes(".")) return;
     this.currentOperand = this.currentOperand.toString() + number.toString();
+    this.updateDisplay();
   }
 
   selectOperation(operation) {
@@ -28,6 +31,7 @@ class Calculator {
     this.operation = operation;
     this.previousOperand = this.currentOperand;
     this.currentOperand = "";
+    this.updateDisplay();
   }
 
   compute() {
@@ -47,6 +51,7 @@ class Calculator {
       case "x":
         result = previousNum * currentNum;
         break;
+      case "/":
       case "÷":
         result = previousNum / currentNum;
         break;
@@ -56,6 +61,7 @@ class Calculator {
     this.currentOperand = result;
     this.operation = undefined;
     this.previousOperand = "";
+    this.updateDisplay();
   }
 
   updateDisplay() {
@@ -78,31 +84,40 @@ const currentOperandText = document.querySelector("[data-operand-current]");
 
 const calculator = new Calculator(previousOperandText, currentOperandText);
 
+const setKeyboard = (e) => {
+  if ((e.key >= 0 && e.key <= 9) || e.key === ".") {
+    calculator.appendNumber(e.key);
+  }
+  if (e.key === "+" || e.key === "-" || e.key === "/" || e.key === "*") {
+    calculator.selectOperation(e.key);
+  }
+  if (e.key === "Enter") calculator.compute();
+  if (e.key === "Backspace") calculator.clear();
+  if (e.key === "Delete") calculator.allClear();
+};
+
+window.addEventListener("keydown", setKeyboard);
+
 buttonsNumbers.forEach((btn) => {
   btn.addEventListener("click", () => {
     calculator.appendNumber(btn.innerText);
-    calculator.updateDisplay();
   });
 });
 
 buttonsOperators.forEach((btn) => {
   btn.addEventListener("click", () => {
     calculator.selectOperation(btn.innerText);
-    calculator.updateDisplay();
   });
 });
 
 buttonEqual.addEventListener("click", () => {
   calculator.compute();
-  calculator.updateDisplay();
 });
 
 buttonAllClear.addEventListener("click", () => {
   calculator.allClear();
-  calculator.updateDisplay();
 });
 
 buttonClear.addEventListener("click", () => {
   calculator.clear();
-  calculator.updateDisplay();
 });
